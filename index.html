@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Ação Cidadania - Transformando Vidas</title>
+    <style>
+        /* CSS GERAL - ESTILO DARK & VIBRANTE */
+        :root {
+            --primary-orange: #ff6600;
+            --bg-dark: #121212;
+            --card-dark: #1e1e1e;
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO E LOGO */
+        header {
+            background: #000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-orange);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Representação do Logo com Crianças */
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: black;
+            border: 2px solid var(--primary-orange);
+            text-align: center;
+            font-size: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* SEÇÃO INICIAL (HERO) */
+        .hero {
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+        }
+
+        .info-lateral {
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-left: 4px solid var(--primary-orange);
+            max-width: 300px;
+            font-size: 0.9em;
+        }
+
+        /* FORMULÁRIOS E CARDS */
+        .container { padding: 40px 5%; }
+
+        .grid-projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-dark);
+            padding: 20px;
+            border-radius: 10px;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            border-bottom: 2px solid var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        /* ÁREA ADMINISTRATIVA */
+        #admin-section {
+            background: #000;
+            padding: 40px;
+            border: 2px dashed var(--primary-orange);
+            margin-top: 50px;
+        }
+
+        .hidden { display: none; }
+
+        footer {
+            background: #000;
+            padding: 40px 5%;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+
+        .stats-discreto {
+            font-size: 0.8em;
+            color: var(--text-gray);
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <div class="logo-placeholder">AÇÃO<br>CIDADANIA</div>
+        <h2>ONG Ação Cidadania</h2>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#cursos">Cursos/Oficinas</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#doacoes">Doações</a></li>
+            <li><a href="#contatos">Contatos</a></li>
+            <li><a href="#admin" onclick="showAdmin()">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div>
+        <h1>Trabalho Social, Cultural e Educacional</h1>
+        <p>Atuando desde 2002 em diversas comunidades de São Paulo.</p>
+        <button style="width: auto;" onclick="location.href='#projetos'">Ver Projetos</button>
+    </div>
+    <div class="info-lateral">
+        <strong>📍 Endereço:</strong><br>
+        Av. Ogum, 13° — Jd. Novo Horizonte<br>
+        São Paulo/SP — CEP: 04856-240<br><br>
+        <strong>⏰ Funcionamento:</strong> 08:00 às 17:00<br>
+        <strong>👥 Atendimento:</strong> 09:00 às 11:00
+    </div>
+</section>
+
+<div class="stats-discreto">Cidadania atendendo mais de 10.000 famílias desde sua fundação.</div>
+
+<section class="container" id="projetos">
+    <h2>Nossos Projetos</h2>
+    <div class="grid-projetos">
+        <div class="card" onclick="openCadastro('Educação Ambiental (9h-11h)')">
+            <h3>Educação Ambiental</h3>
+            <p>Horário: 09:00 às 11:00</p>
+        </div>
+        <div class="card" onclick="openCadastro('Teatro Comunitário (9h-11h)')">
+            <h3>Teatro Comunitário</h3>
+            <p>Horário: 09:00 às 11:00</p>
+        </div>
+        <div class="card" onclick="openCadastro('Escolinha de Esportes')">
+            <h3>Futebol e Vôlei</h3>
+            <p>8h-10h ou 14h-16h</p>
+        </div>
+        <div class="card" onclick="openCadastro('Capoeira (Segunda 19h)')">
+            <h3>Capoeira</h3>
+            <p>Segundas: 19:00 às 21:00</p>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="cursos">
+    <h2>Cursos e Oficinas</h2>
+    <div class="grid-projetos">
+        <div class="card" onclick="openCadastro('Curso de Cuidadora')"><h3>Curso de Cuidadora</h3></div>
+        <div class="card" onclick="openCadastro('Controle de Acesso')"><h3>Controle de Acesso</h3></div>
+        <div class="card" onclick="openCadastro('Inclusão Digital')"><h3>Tecnologia e Inclusão Digital</h3></div>
+        <div class="card" onclick="openCadastro('Alvenaria/Elétrica')"><h3>Alvenaria, Hidráulica e Elétrica</h3></div>
+    </div>
+</section>
+
+<section class="container" id="cadastro-form" style="background: #1a1a1a; border-radius: 15px;">
+    <h2 id="titulo-cadastro">Selecione um projeto ou curso acima</h2>
+    <form id="formPrincipal">
+        <div class="grid-projetos">
+            <div class="form-group">
+                <label>Nome do Responsável (Adulto)</label>
+                <input type="text" placeholder="Nome Completo" required>
+            </div>
+            <div class="form-group">
+                <label>CPF do Adulto</label>
+                <input type="text" placeholder="000.000.000-00" required>
+            </div>
+        </div>
+
+        <div class="grid-projetos">
+            <div class="form-group">
+                <label>Nome da Rua</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Bairro</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>CEP</label>
+                <input type="text" required>
+            </div>
+        </div>
+
+        <div class="grid-projetos">
+            <div class="form-group">
+                <label>Quantas Crianças?</label>
+                <input type="number" min="0" required>
+            </div>
+            <div class="form-group">
+                <label>Idade das Crianças</label>
+                <input type="text" placeholder="Ex: 5, 8 e 12 anos">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Projeto/Curso Desejado</label>
+            <select id="select-opcao">
+                <option value="">Escolha uma opção...</option>
+                <optgroup label="Projetos">
+                    <option>Educação Ambiental</option>
+                    <option>Teatro Comunitário</option>
+                    <option>Reforço Estudantil</option>
+                    <option>Capoeira</option>
+                    <option>Aula de Violão</option>
+                </optgroup>
+                <optgroup label="Cursos">
+                    <option>Cuidadora</option>
+                    <option>Controle de Acesso</option>
+                    <option>Oficina de Arte</option>
+                    <option>Alvenaria e Hidráulica</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Restrições Médicas / Deficiências / Medicações</label>
+            <textarea rows="3" placeholder="Descreva aqui se houver..."></textarea>
+        </div>
+
+        <button type="submit">FINALIZAR CADASTRO</button>
+    </form>
+</section>
+
+<section class="container" id="galeria">
+    <h2>Galeria de Atividades</h2>
+    <div class="form-group">
+        <label>Adicionar Foto/Vídeo (Upload)</label>
+        <input type="file" accept="image/*, video/*" multiple>
+    </div>
+    <div id="display-midia" style="display:flex; gap:10px; flex-wrap: wrap;">
+        <div style="width:150px; height:150px; background:#333;"></div>
+        <div style="width:150px; height:150px; background:#333;"></div>
+    </div>
+</section>
+
+<section class="container" id="doacoes">
+    <h2>Quero Contribuir</h2>
+    <div class="grid-projetos">
+        <div class="card" onclick="alert('Formulário de Alimentos Aberto')">
+            <h3>🍎 Alimentos</h3>
+            <p>Doe cestas básicas ou mantimentos.</p>
+        </div>
+        <div class="card" onclick="alert('Formulário de Agasalhos Aberto')">
+            <h3>👕 Agasalhos</h3>
+            <p>Roupas e cobertores em bom estado.</p>
+        </div>
+        <div class="card">
+            <h3>💰 Financeiro (PIX)</h3>
+            <p>CNPJ: 64.600.685.0001/90</p>
+            <div style="background: white; width: 120px; height: 120px; margin: 10px auto; color: black; font-size: 10px; text-align: center;">
+                [QR CODE PIX]
+            </div>
+            <button onclick="navigator.clipboard.writeText('64.600.685.0001/90'); alert('Chave PIX Copiada!')">Copiar Chave</button>
+        </div>
+    </div>
+</section>
+
+<footer id="contatos">
+    <div class="grid-projetos">
+        <div>
+            <h3>Redes Sociais</h3>
+            <p><a href="https://instagram.com/ONG.acaocidadania" target="_blank">Instagram: @ONG.acaocidadania</a></p>
+            <p><a href="https://facebook.com/OngCidadania" target="_blank">Facebook: Ong Cidadania</a></p>
+            <p>WhatsApp: 11 92668-1078</p>
+        </div>
+        <div>
+            <h3>Suporte</h3>
+            <p>💬 Chat de Perguntas Rápidas</p>
+            <p>📩 Reclame Aqui / Sugestões</p>
+            <p>📧 ongacaocidadania2@gmail.com</p>
+        </div>
+        <div>
+            <h3>Parceiros</h3>
+            <p style="font-size: 0.8em; color: var(--text-gray);">Neno SP, R Alves Engenharia, Supermercado Fantástico, Ritz, JNH Energia.</p>
+        </div>
+    </div>
+</footer>
+
+<div class="container" id="admin-login">
+    <button onclick="loginAdmin()">Acessar Painel do Administrador</button>
+</div>
+
+<section id="admin-section" class="hidden">
+    <h2>Painel de Gestão (ADMIN)</h2>
+    <p>Bem-vindo, Robson. Total de famílias cadastradas: 10.452</p>
+    <div id="lista-cadastros">
+        <table border="1" style="width: 100%; border-collapse: collapse;">
+            <tr><th>Nome</th><th>Projeto</th><th>Endereço</th></tr>
+            <tr><td>Exemplo Maria</td><td>Balé</td><td>Rua A, 123</td></tr>
+        </table>
+    </div>
+    <button onclick="location.reload()" style="background: #444; margin-top: 20px;">Sair do Painel</button>
+</section>
+
+<script>
+    // Função para direcionar ao cadastro do projeto específico
+    function openCadastro(projeto) {
+        document.getElementById('titulo-cadastro').innerText = "Cadastro para: " + projeto;
+        document.getElementById('select-opcao').value = projeto;
+        document.getElementById('cadastro-form').scrollIntoView();
+    }
+
+    // Função de Login do Administrador
+    function loginAdmin() {
+        const pass = prompt("Digite a senha do administrador:");
+        if (pass === "6968") {
+            document.getElementById('admin-section').classList.remove('hidden');
+            document.getElementById('admin-login').classList.add('hidden');
+            alert("Acesso concedido!");
+        } else {
+            alert("Senha incorreta!");
+        }
+    }
+
+    // Simulação de envio
+    document.getElementById('formPrincipal').onsubmit = function(e) {
+        e.preventDefault();
+        alert("Cadastro enviado com sucesso para a ONG Ação Cidadania!");
+    }
+</script>
+
+</body>
+</html>
